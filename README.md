@@ -1,13 +1,16 @@
 
 
-My Fruit Store
+## My Fruit Store
 
 
-Built with
-React
-CSS
-Bootsrap
-Author
+### Built with
+-React
+
+-CSS
+
+-Bootsrap
+
+## Author
 Sushil Munfan
 
 
