@@ -1,6 +1,6 @@
 import React from "react";
-
-export default function Welcome(props) {
+import { connect } from "react-redux";
+function Welcome(props) {
   return (
     <>
       <div
@@ -25,3 +25,14 @@ export default function Welcome(props) {
     </>
   );
 }
+
+const mapDispatchToProps = dispatch => {
+  return {
+    setScreen: screen => dispatch({ type: "SET_SCREEN", data: screen })
+  };
+};
+
+export default connect(
+  null,
+  mapDispatchToProps
+)(Welcome);

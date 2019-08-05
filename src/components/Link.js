@@ -1,6 +1,7 @@
 import React from "react";
+import { connect } from "react-redux";
 
-export default function Link(props) {
+function Link(props) {
   return (
     <>
       <div className="row pt-2 justify-content-around">
@@ -9,7 +10,7 @@ export default function Link(props) {
         </button>
         <button
           type="button"
-          disabled={props.disabled}
+          disabled={props.disable}
           className="btn btn-info"
           onClick={props.onClick}
         >
@@ -19,3 +20,21 @@ export default function Link(props) {
     </>
   );
 }
+
+const mapStateToProps = state => {
+  return {
+    disable: state.disable
+  };
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+    onClick: () => dispatch({ type: "SET_SCREEN", data: 3 }),
+    onClick1: () => dispatch({ type: "SET_SCREEN", data: 2 })
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Link);

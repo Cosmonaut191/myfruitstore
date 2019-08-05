@@ -4,10 +4,12 @@ import Dropdown from "./Dropdowncomp";
 import { Form } from "react-bootstrap";
 import DatePicker from "react-datepicker";
 import Link from "./Link";
-export default class Selectfruit extends Component {
+import { connect } from "react-redux";
+
+class Selectfruit extends Component {
   state = { fruit: "Orange", description: "", by: "", date: new Date() };
 
-  data = this.state;
+  // data = this.state;
 
   handleFruit = event => {
     this.setState({ fruit: event.target.value });
@@ -28,11 +30,7 @@ export default class Selectfruit extends Component {
         <Navbar />
 
         <div className="container ">
-          <Link
-            disabled={this.props.disable}
-            onClick={() => this.props.setScreen(3)}
-            onClick1={() => this.props.setScreen(2)}
-          />
+          <Link />
 
           <div className="row mt-5 " style={{ minHeight: "70vh" }}>
             <div className="col-10 col-md-10 col-lg-4 mx-auto bg-info col-xs-11 ">
@@ -101,3 +99,14 @@ export default class Selectfruit extends Component {
     );
   }
 }
+
+const mapDispatchToProps = dispatch => {
+  return {
+    addData: (e, data) => dispatch({ type: "ADD_DATA", event: e, data: data })
+  };
+};
+
+export default connect(
+  null,
+  mapDispatchToProps
+)(Selectfruit);

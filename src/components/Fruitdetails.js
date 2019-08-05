@@ -1,17 +1,15 @@
 import React, { Component } from "react";
 import Navbar from "./Navbar";
 import Link from "./Link";
-export default class Fruitdetails extends Component {
+import { connect } from "react-redux";
+
+class Fruitdetails extends Component {
   render() {
     return (
       <div className="bg-info" style={{ minHeight: "100vh" }}>
         <Navbar />
         <div className="container bg-success">
-          <Link
-            disabled={this.props.disable}
-            onClick={() => this.props.setScreen(3)}
-            onClick1={() => this.props.setScreen(2)}
-          />
+          <Link />
 
           <div className="row justify-content-center pt-5 pb-5">
             <h1>
@@ -48,3 +46,12 @@ export default class Fruitdetails extends Component {
     );
   }
 }
+
+const mapStateToProps = state => {
+  return { showData: state.fruitData };
+};
+
+export default connect(
+  mapStateToProps,
+  null
+)(Fruitdetails);
