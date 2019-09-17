@@ -2,6 +2,7 @@
 
 ## My Fruit Store
 
+### Live Demo: https://myfruitstore.netlify.com
 
 ### Built with
 -React
